@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="view/css/cadastrar.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Cadastro de Veículo</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastrar.html">Cadastrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="esq-dir-layout">
+            <main class="main-esquerda">
+                <section class="jumbotron text-center">
+                    <div class="container">
+                        <h1 class="display-4">Vamos Começar</h1>
+                        <p class="lead">qual é o tipo do veículo</p>
+                        <button class="btn" onclick="mostrarPerguntas('carroQuestions')">Carro</a>
+                            <button class="btn" onclick="mostrarPerguntas('caminhaoQuestions')">Caminhão</a>
+                    </div>
+                </section>
+            </main>
+
+
+            <main class="main-direita">
+                <section class="jumbotron-2 text-center">
+                    <div class="container-2">
+                        <h1 class="letrus">Cadastrar e listar os veículos que temos disponíveis para o aluguel</h1>
+                        <div class="input-container">
+                            <input type="text" required minlength=2" maxlength="50" placeholder="MARCA">
+                            <input type="text" minlength="1" maxlength="50" placeholder="MODELO">
+                            <input type="text" minlength="6" maxlength="50" placeholder="PLACA">
+                        </div>
+                        <div class="input-container">
+                            <input type="text" minlength="3" maxlength="50" placeholder="COMBUSTIVEL">
+                            <input type="text" minlength="4" maxlength="4" placeholder="ANO DE FABRICAÇÃO">
+                            <input type="text" minlength="2" maxlength="50" placeholder="COR">
+                        </div>
+                        <div class="wolf">
+                            <input type="text" minlength="1" maxlength="50" placeholder="QUILOMETRAGEM">
+                        </div>
+                        
+                        <div id="carroQuestions" style="display: none;">
+                            <h3>Detalhes do Carro</h3>
+                            <input type="number" minlength="1" maxlength="50" placeholder="Número de Passageiros">
+                            <input type="number" minlength="3" maxlength="50" placeholder="Capacidade Porta-Malas">
+                            <input type="text" minlength="3" maxlength="50" placeholder="Transmissão">
+                        </div>
+
+                        
+                        <div id="caminhaoQuestions" style="display: none;">
+                            <h3>Detalhes do Caminhão</h3>
+                            <input type="number" placeholder="Eixo">
+                            <input type="number" placeholder="Capacidade de Carga">
+                            <input type="text" placeholder="Tipo de Carroceria">
+                        </div>
+                        
+                        <button class="btn2" onclick="cadastrarVeiculo()">Cadastrar Veículo</button>
+                    </div>
+                </section>
+            </main>
+
+        
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="view/js/main2.js"></script>
+</body>
+
+</html>
