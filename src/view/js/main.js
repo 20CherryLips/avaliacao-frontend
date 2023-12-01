@@ -1,23 +1,36 @@
 const url_server = "http://localhost:8200"
 
-function cadastrar() {
+// Função para mostrar perguntas
+function mostrarPerguntas(perguntasId) {
+  document.getElementById('carroQuestions').style.display = 'none';
+  document.getElementById('caminhaoQuestions').style.display = 'none';
+
+  document.getElementById(perguntasId).style.display = 'block';
+
+  document.getElementById('btnCadastrarVeiculo').addEventListener('click', cadastrarVeiculo);
+}
+
+function cadastrarVeiculo() {
   console.log('Enviando dados ao servidor...');
 
-  // Recuperando dados do formulário e armazenando na variável dados, que está estruturada em formato JSON
   const dados = {
-    tipo: document.querySelector('[name="tipo"]').value,
-    marca: document.querySelector('[name="marca"]').value,
-    modelo: document.querySelector('[name="modelo"]').value,
-    placa: document.querySelector('[name="placa"]').value,
-    combustivel: document.querySelector('[name="combustivel"]').value,
-    anodefabricacao: document.querySelector('[name="anodefabricacao"]').value,
-    cor: document.querySelector('[name="cor"]').value,
-    quilometragem: document.querySelector('[name="quilometragem"]').value,
+    tipo: document.getElementById('tipo').value,
+    marca: document.getElementById('marca').value,
+    modelo: document.getElementById('modelo').value,
+    placa: document.getElementById('placa').value,
+    combustivel: document.getElementById('combustivel').value,
+    anodefabricacao: document.getElementById('anodefabricacao').value,
+    cor: document.getElementById('cor').value,
+    quilometragem: document.getElementById('quilometragem').value,
+    numeropassageiro: document.getElementById('numeropassageiro').value,
+    capacidadeportamala: document.getElementById('capacidadeportamala').value,
+    transmissao: document.getElementById('transmissao').value,
+    eixo: document.getElementById('eixo').value,
+    capacidadecarga: document.getElementById('capacidadecarga').value,
+    tipocarroceria: document.getElementById('tipocarroceria').value,
+    
   }
 
-  console.log(dados);
-
-  // Faz requisição ao servidor usando o verbo POST, enviando os dados para o servidor
   fetch(`${url_server}/cadastro`, {
     method: 'POST',
     headers: {
@@ -25,73 +38,78 @@ function cadastrar() {
     },
     body: JSON.stringify(dados)
   })
-    // Depois de feita a requisição, o front-end irá receber um retorno do servidor
     .then(response => response.json())
-    // Se toda a requisição deu certo, será informado no log
     .then(dados => {
       console.log('Resposta do servidor:', dados);
-      // Faça algo com a resposta do servidor, se necessário
     })
-    // Caso tenha algum tipo de erro na requisição, é lançada a excessão
     .catch(error => {
       console.error('Erro ao enviar dados para o servidor:', error);
-      // Trate os erros, se necessário
     });
 }
 
-function listarVeiculos() {
+
+function veiculosCadastro() {
+  // Limpa a tabela antes de popular com novos dados
+  const tabela = document.querySelector('table');
+  tabela.innerHTML = '';
+
   fetch(`${url_server}/veiculo`)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-    });
+      data.forEach(veiculo => {
+        const elementTr = document.createElement('tr');
+        const tdTipo = document.createElement('td');
+        const tdMarca = document.createElement('td');
+        const tdModelo = document.createElement('td');
+        const tdPlaca = document.createElement('td');
+        const tdCombustivel = document.createElement('td');
+        const tdAnoDeFabricacao = document.createElement('td');
+        const tdCor = document.createElement('td');
+        const tdQuilometragem = document.createElement('td');
+        const tdNumeroPassageiro = document.createElement('td');
+        const tdCapacidadePortaMalas = document.createElement('td');
+        const tdTransmissao = document.createElement('td');
+        const tdEixo = document.createElement('td');
+        const tdCapacidadeDeCarga = document.createElement('td');
+        const tdTipoCarroceria = document.createElement('td');
 
-  function listarPessoas() {
-
-    // faça algo antes de montar a tabela, SE NECESSÁRIO
-
-    fetch(`${url_server}/veiculo`)
-      .then(response => response.json())
-      .then(data => {
-        // Inserindo os dados da pessoa na tabela
-        // fazendo um loop usando forEach para percorrer todos os dados retornados pelo servidor
-        data.forEach(veiculo => {
-          // Criando os elementos HTML
-          const tabela = document.querySelector('table');
-          const elementTr = document.createElement('tr');
-          const tdTipo = document.createElement('td');
-          const tdMarca = document.createElement('td');
-          const tdModelo = document.createElement('td');
-          const tdPlaca = document.createElement('td');
-          const tdCombustivel = document.createElement('td');
-          const tdAnoDeFabricacao = document.createElement('td');
-          const tdCor = document.createElement('td');
-          const tdQuilometragem = document.createElement('td');
-
-          // Inserindo os dados da veiculo no elemento	
-          tdTipo.textContent = veiculo.tipo;
-          tdMarca.textContent = veiculo.marca;
-          tdModelo.textContent = veiculo.modelo;
-          tdPlaca.textContent = veiculo.placa;
-          tdCombustivel.textContent = veiculo.combustivel;
-          tdAnoDeFabricacao.textContent = veiculo.anoDeFabricacao;
-          tdCor.textContent = veiculo.Cor;
-          tdQuilometragem.textContent = veiculo.Quilometragem;
+        tdTipo.textContent = veiculo.tipo;
+        tdMarca.textContent = veiculo.marca;
+        tdModelo.textContent = veiculo.modelo;
+        tdPlaca.textContent = veiculo.placa;
+        tdCombustivel.textContent = veiculo.combustivel;
+        tdAnoDeFabricacao.textContent = veiculo.anodefabricacao;
+        tdCor.textContent = veiculo.cor;
+        tdQuilometragem.textContent = veiculo.quilometragem;
+        tdNumeroPassageiro.textContent = veiculo.numeropassageiro;
+        tdCapacidadePortaMalas.textContent = veiculo.capacidadeportamala;
+        tdTransmissao.textContent = veiculo.transmissao;
+        tdEixo.textContent = veiculo.eixo;
+        tdCapacidadeDeCarga.textContent = veiculo.capacidadecarga;
+        tdTipoCarroceria.textContent = veiculo.tipocarroceria;
 
 
-          // Inserindo os elementos nas linhas da tabela (tr => TableRow)
-          elementTr.appendChild(tdTipo);
-          elementTr.appendChild(tdMarca);
-          elementTr.appendChild(tdModelo);
-          elementTr.appendChild(tdPlaca);
-          elementTr.appendChild(tdCombustivel);
-          elementTr.appendChild(tdAnoDeFabricacao);
-          elementTr.appendChild(tdCor);
-          elementTr.appendChild(tdQuilometragem);
+        elementTr.appendChild(tdTipo);
+        elementTr.appendChild(tdMarca);
+        elementTr.appendChild(tdModelo);
+        elementTr.appendChild(tdPlaca);
+        elementTr.appendChild(tdCombustivel);
+        elementTr.appendChild(tdAnoDeFabricacao);
+        elementTr.appendChild(tdCor);
+        elementTr.appendChild(tdQuilometragem);
+        elementTr.appendChild(tdNumeroPassageiro);
+        elementTr.appendChild(tdCapacidadePortaMalas);
+        elementTr.appendChild(tdTransmissao);
+        elementTr.appendChild(tdEixo);
+        elementTr.appendChild(tdCapacidadeDeCarga);
+        elementTr.appendChild(tdTipoCarroceria);
 
-          // Adicionando a linha com as informações na tabela
-          tabela.appendChild(elementTr);
-        });
+
+        tabela.appendChild(elementTr);
       });
-  }
+    })
+    .catch(error => {
+      console.error('Erro ao obter dados do servidor:', error);
+    });
 }
+

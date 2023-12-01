@@ -49,46 +49,45 @@
                     <div class="container-2">
                         <h1 class="letrus">Cadastrar e listar os veículos que temos disponíveis para o aluguel</h1>
                         <div class="input-container">
-                            <input type="text" required minlength=2" maxlength="50" placeholder="MARCA">
-                            <input type="text" minlength="1" maxlength="50" placeholder="MODELO">
-                            <input type="text" minlength="6" maxlength="50" placeholder="PLACA">
-                        </div>
-                        <div class="input-container">
-                            <input type="text" minlength="3" maxlength="50" placeholder="COMBUSTIVEL">
-                            <input type="text" minlength="4" maxlength="4" placeholder="ANO DE FABRICAÇÃO">
-                            <input type="text" minlength="2" maxlength="50" placeholder="COR">
-                        </div>
-                        <div class="wolf">
-                            <input type="text" minlength="1" maxlength="50" placeholder="QUILOMETRAGEM">
-                        </div>
-                        
-                        <div id="carroQuestions" style="display: none;">
-                            <h3>Detalhes do Carro</h3>
-                            <input type="number" minlength="1" maxlength="50" placeholder="Número de Passageiros">
-                            <input type="number" minlength="3" maxlength="50" placeholder="Capacidade Porta-Malas">
-                            <input type="text" minlength="3" maxlength="50" placeholder="Transmissão">
-                        </div>
+                            <input id="tipo" type="text" required minlength="2" maxlength="50" placeholder="TIPO">
+                            <input id="marca" type="text" required minlength="2" maxlength="50" placeholder="MARCA">
+                            <input id="modelo" type="text" required minlength="1" maxlength="50" placeholder="MODELO">
+                            <input id="placa" type="text" required minlength="6" maxlength="50" placeholder="PLACA">
+                            <input id="combustivel" type="text" required minlength="3" maxlength="50"
+                                placeholder="COMBUSTIVEL">
+                            <input id="anodefabricacao" type="text" required minlength="4" maxlength="4"
+                                placeholder="ANO DE FABRICAÇÃO">
+                            <input id="cor" type="text" required minlength="2" maxlength="50" placeholder="COR">
+                            <input id="quilometragem" type="text" required minlength="1" maxlength="50"
+                                placeholder="QUILOMETRAGEM">
 
-                        
-                        <div id="caminhaoQuestions" style="display: none;">
-                            <h3>Detalhes do Caminhão</h3>
-                            <input type="number" placeholder="Eixo">
-                            <input type="number" placeholder="Capacidade de Carga">
-                            <input type="text" placeholder="Tipo de Carroceria">
+                            <div id="carroQuestions" style="display: none;">
+                                <h3>Detalhes do Carro</h3>
+                                <input id="numeropassageiro"  type="number" required minlength="2" maxlength="50" placeholder="Número de Passageiros">
+                                <input id="capacidadeportamala"  type="number" required minlength="2" maxlength="50" placeholder="Capacidade Porta-Malas">
+                                <input id="transmissao" type="text" required minlength="2" maxlength="50" placeholder="Transmissão">
+                            </div>
+
+
+                            <div id="caminhaoQuestions" style="display: none;">
+                                <h3>Detalhes do Caminhão</h3>
+                                <input id="eixo" type="number" required minlength="2" maxlength="50" placeholder="Eixo">
+                                <input id="capacidadecarga" type="number" required minlength="2" maxlength="50" placeholder="Capacidade de Carga">
+                                <input id="tipocarroceria" type="text" required minlength="2" maxlength="50" placeholder="Tipo de Carroceria">
+                            </div>
+
+                            <button class=" " id="btnCadastrarVeiculo">Cadastrar Veículo</button>
                         </div>
-                        
-                        <button class="btn2" onclick="cadastrarVeiculo()">Cadastrar Veículo</button>
-                    </div>
                 </section>
             </main>
 
-        
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="view/js/main2.js"></script>
+        <script src="view/js/main.js"></script>
 </body>
 
 </html>
