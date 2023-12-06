@@ -10,6 +10,8 @@ function mostrarPerguntas(perguntasId) {
   document.getElementById('btnCadastrarVeiculo').addEventListener('click', cadastrarVeiculo);
 }
 
+
+
 function cadastrarVeiculo() {
   console.log('Enviando dados ao servidor...');
 
@@ -112,4 +114,3 @@ function veiculosCadastro() {
       console.error('Erro ao obter dados do servidor:', error);
     });
 }
-

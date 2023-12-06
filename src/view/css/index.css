@@ -10,6 +10,16 @@ body {
     color: var(--cor3);
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh 89vh 1vh;
+    grid-template-areas:
+        'header'
+        'div div'
+        'footer';
+}
+
 .div-cadastro{
     background-color: #53B0A7;
     width: 80px;
