@@ -10,10 +10,9 @@ function mostrarPerguntas(perguntasId) {
   document.getElementById('btnCadastrarVeiculo').addEventListener('click', cadastrarVeiculo);
 }
 
-
-
 function cadastrarVeiculo() {
   console.log('Enviando dados ao servidor...');
+  window.alert("Dados salvos com sucesso!");
 
   const dados = {
     tipo: document.getElementById('tipo').value,
@@ -47,6 +46,7 @@ function cadastrarVeiculo() {
     .catch(error => {
       console.error('Erro ao enviar dados para o servidor:', error);
     });
+
 }
 
 
@@ -108,6 +108,7 @@ function veiculosCadastro() {
 
 
         tabela.appendChild(elementTr);
+
       });
     })
     .catch(error => {
